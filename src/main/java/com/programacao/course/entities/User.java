@@ -1,14 +1,28 @@
 package com.programacao.course.entities;
 
 import java.io.Serializable;
+
 import java.util.Objects;
 
-public class User implements Serializable{
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
+
+@Entity
+@Table(name = "tb_user")
+public class User implements Serializable{
+	private static final long serialVersionUID = 1L;
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+	private String name;
+	private String email;
+	private String fone;
+	private String password;
+	
 	public User(long id, String name, String email, String fone, String password) {
 		super();
 		this.id = id;
@@ -18,11 +32,7 @@ public class User implements Serializable{
 		this.password = password;
 	}
 
-	private long id;
-	private String name;
-	private String email;
-	private String fone;
-	private String password;
+	
 	
 	public User() {	
 	}
